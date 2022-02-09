@@ -1,9 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# Description: NarcoLogic + Multiple Type Maximal Covering Location
+# Problem (MT-MCLP) Coupled Model
+
+##Requirements: ArcGIS Pro, Matlab, Gurobi
+
+
 # # Workspace Setup and Library Imports
 
-# In[68]:
+# In[1]:
 
 
 aprx = arcpy.mp.ArcGISProject('Current')
@@ -26,7 +32,7 @@ eng = matlab.engine.start_matlab()
 
 # # Data Sourcing Fx
 
-# In[32]:
+# In[3]:
 
 
 #Check for Nodes_2 if on cycle 2 or more, else use Node feature input
@@ -50,7 +56,7 @@ def Data_Sourcing():
 
 # # MT-MCLP Fx
 
-# In[33]:
+# In[4]:
 
 
 def MTMCI_func(NodesDF, timestep):
@@ -141,7 +147,7 @@ def MTMCI_func(NodesDF, timestep):
 
 # # NarcoLogic Fx
 
-# In[34]:
+# In[5]:
 
 
 def NarcoLogic_Fxs(number):
@@ -193,7 +199,7 @@ def NarcoLogic_Fxs(number):
 # 7) Concatinate updated flow data with the all previous data in a comprehensive dataframe, write to csv<br>
 # 8) Write Nodes_2 as csv to be called in as Nodes in next cycle
 
-# In[35]:
+# In[6]:
 
 
 def Data_Processing(Tflow, Nodes, i):
@@ -265,7 +271,7 @@ def Data_Processing(Tflow, Nodes, i):
 
 # # Call Functions
 
-# In[39]:
+# In[7]:
 
 
 times = range(1, 180)
